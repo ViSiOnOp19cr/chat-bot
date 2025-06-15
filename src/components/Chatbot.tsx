@@ -123,25 +123,25 @@ export default function Chatbot() {
         {messages.length === 0 ? (
           <div className="text-center text-gray-500 mt-8">
             <div className="text-4xl mb-4">👋</div>
-            <p className="text-lg font-semibold text-gray-700">Hello Chandan! I'm your personal AI assistant.</p>
-            <p className="text-sm mb-6">I'm here to help you be more productive and organized!</p>
+            <p className="text-lg font-semibold text-gray-700">Hello Chandan! I&apos;m your personal AI assistant.</p>
+            <p className="text-sm mb-6">I&apos;m here to help you be more productive and organized!</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto text-left">
               <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-3 rounded-lg border border-blue-100">
                 <p className="text-sm font-medium text-blue-700 mb-1">💼 Work & Productivity</p>
-                <p className="text-xs text-gray-600">"Help me plan my day" or "Review this code"</p>
+                <p className="text-xs text-gray-600">&quot;Help me plan my day&quot; or &quot;Review this code&quot;</p>
               </div>
               <div className="bg-gradient-to-r from-green-50 to-blue-50 p-3 rounded-lg border border-green-100">
                 <p className="text-sm font-medium text-green-700 mb-1">🧠 Learning & Research</p>
-                <p className="text-xs text-gray-600">"Explain this concept" or "Research about..."</p>
+                <p className="text-xs text-gray-600">&quot;Explain this concept&quot; or &quot;Research about...&quot;</p>
               </div>
               <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-3 rounded-lg border border-purple-100">
                 <p className="text-sm font-medium text-purple-700 mb-1">💡 Creative Ideas</p>
-                <p className="text-xs text-gray-600">"Brainstorm ideas for..." or "Help me write..."</p>
+                <p className="text-xs text-gray-600">&quot;Brainstorm ideas for...&quot; or &quot;Help me write...&quot;</p>
               </div>
               <div className="bg-gradient-to-r from-orange-50 to-red-50 p-3 rounded-lg border border-orange-100">
                 <p className="text-sm font-medium text-orange-700 mb-1">🎯 Planning & Organization</p>
-                <p className="text-xs text-gray-600">"Create a plan for..." or "Help me organize..."</p>
+                <p className="text-xs text-gray-600">&quot;Create a plan for...&quot; or &quot;Help me organize...&quot;</p>
                              </div>
              </div>
              
