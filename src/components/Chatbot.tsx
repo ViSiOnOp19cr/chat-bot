@@ -81,6 +81,19 @@ export default function Chatbot() {
     setMessages([]);
   };
 
+  const sendQuickMessage = (message: string) => {
+    if (isLoading) return;
+    setInput(message);
+    // Auto-send the message
+    setTimeout(() => {
+      const form = document.querySelector('form');
+      if (form) {
+        const event = new Event('submit', { bubbles: true, cancelable: true });
+        form.dispatchEvent(event);
+      }
+    }, 100);
+  };
+
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
@@ -88,10 +101,13 @@ export default function Chatbot() {
   return (
     <div className="flex flex-col h-full max-w-4xl mx-auto bg-white rounded-lg shadow-lg">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-blue-600 text-white rounded-t-lg">
+      <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-t-lg">
         <div className="flex items-center">
-          <div className="w-3 h-3 bg-green-400 rounded-full mr-2"></div>
-          <h1 className="text-xl font-semibold">AI Chatbot</h1>
+          <div className="w-3 h-3 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+          <div>
+            <h1 className="text-xl font-semibold">Personal Assistant</h1>
+            <p className="text-xs text-purple-100">Ready to help you, Chandan!</p>
+          </div>
         </div>
         <button
           onClick={clearChat}
@@ -106,9 +122,58 @@ export default function Chatbot() {
       <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
         {messages.length === 0 ? (
           <div className="text-center text-gray-500 mt-8">
-            <div className="text-4xl mb-4">🤖</div>
-            <p className="text-lg">Hello! I'm Chandan C R's AI assistant.</p>
-            <p className="text-sm">Ask me anything to get started!</p>
+            <div className="text-4xl mb-4">👋</div>
+            <p className="text-lg font-semibold text-gray-700">Hello Chandan! I'm your personal AI assistant.</p>
+            <p className="text-sm mb-6">I'm here to help you be more productive and organized!</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto text-left">
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-3 rounded-lg border border-blue-100">
+                <p className="text-sm font-medium text-blue-700 mb-1">💼 Work & Productivity</p>
+                <p className="text-xs text-gray-600">"Help me plan my day" or "Review this code"</p>
+              </div>
+              <div className="bg-gradient-to-r from-green-50 to-blue-50 p-3 rounded-lg border border-green-100">
+                <p className="text-sm font-medium text-green-700 mb-1">🧠 Learning & Research</p>
+                <p className="text-xs text-gray-600">"Explain this concept" or "Research about..."</p>
+              </div>
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-3 rounded-lg border border-purple-100">
+                <p className="text-sm font-medium text-purple-700 mb-1">💡 Creative Ideas</p>
+                <p className="text-xs text-gray-600">"Brainstorm ideas for..." or "Help me write..."</p>
+              </div>
+              <div className="bg-gradient-to-r from-orange-50 to-red-50 p-3 rounded-lg border border-orange-100">
+                <p className="text-sm font-medium text-orange-700 mb-1">🎯 Planning & Organization</p>
+                <p className="text-xs text-gray-600">"Create a plan for..." or "Help me organize..."</p>
+                             </div>
+             </div>
+             
+             <div className="mt-6">
+               <p className="text-sm font-medium text-gray-600 mb-3">Quick Actions:</p>
+               <div className="flex flex-wrap gap-2 justify-center">
+                 <button
+                   onClick={() => sendQuickMessage("Help me plan my day")}
+                   className="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition-colors"
+                 >
+                   📅 Plan My Day
+                 </button>
+                 <button
+                   onClick={() => sendQuickMessage("Give me a productivity tip")}
+                   className="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full hover:bg-green-200 transition-colors"
+                 >
+                   ⚡ Productivity Tip
+                 </button>
+                 <button
+                   onClick={() => sendQuickMessage("Help me brainstorm ideas for my current project")}
+                   className="px-3 py-1 text-xs bg-purple-100 text-purple-700 rounded-full hover:bg-purple-200 transition-colors"
+                 >
+                   💡 Brainstorm
+                 </button>
+                 <button
+                   onClick={() => sendQuickMessage("Review my goals and suggest improvements")}
+                   className="px-3 py-1 text-xs bg-orange-100 text-orange-700 rounded-full hover:bg-orange-200 transition-colors"
+                 >
+                   🎯 Goal Review
+                 </button>
+               </div>
+             </div>
           </div>
         ) : (
           messages.map((message, index) => (
