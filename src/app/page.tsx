@@ -19,7 +19,7 @@ export default function Home() {
         
         <div className="text-center mt-8 text-sm text-gray-500">
           <p>
-            Built with Next.js, TypeScript, and OpenAI API
+            Built by Chandan C R
           </p>
         </div>
       </div>
